@@ -46,7 +46,7 @@ pub mod b {
 
     #[cfg(test)]
     mod tests {
-        use crate::aoc1::b::solve;
+        use crate::day1::b::solve;
 
         #[test]
         fn test_window_of_three() {
