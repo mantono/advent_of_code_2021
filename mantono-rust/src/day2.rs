@@ -41,22 +41,6 @@ pub enum Step {
     Down(usize),
 }
 
-impl FromStr for Step {
-    type Err = Infallible;
-
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let mut iter = s.split_whitespace();
-        let dir: &str = iter.next().unwrap();
-        let qnt: usize = iter.next().unwrap().parse().unwrap();
-        match dir {
-            "forward" => Ok(Step::Fwd(qnt)),
-            "up" => Ok(Step::Up(qnt)),
-            "down" => Ok(Step::Down(qnt)),
-            _ => panic!("Bah!"),
-        }
-    }
-}
-
 pub struct Aoc;
 
 impl Solver for Aoc {
