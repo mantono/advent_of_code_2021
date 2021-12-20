@@ -11,4 +11,4 @@ env_logger = "0.7"
 termcolor = "1.1"
 lazy_static = "1.4"
 itertools = "0.9"
-aoc = { git = "https://github.com/mantono/aoc.git", rev = "8771c53" }
+aoc = { git = "https://github.com/mantono/aoc.git", rev = "2aa53bf" }

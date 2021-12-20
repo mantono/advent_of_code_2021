@@ -14,7 +14,7 @@ dependencies = [
 [[package]]
 name = "aoc"
 version = "0.1.0"
-source = "git+https://github.com/mantono/aoc.git?rev=8771c53#8771c530d11bc867a627c8e4d96ef426853c4108"
+source = "git+https://github.com/mantono/aoc.git?rev=2aa53bf#2aa53bfe28f08f268ebd92380c7b706621752636"
 dependencies = [
  "chrono",
  "reqwest",

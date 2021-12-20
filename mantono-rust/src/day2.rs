@@ -1,4 +1,4 @@
-use std::{convert::Infallible, str::FromStr};
+use std::str::FromStr;
 
 use aoc::{Puzzle, Solver};
 
@@ -50,19 +50,7 @@ impl Solver for Aoc {
         Puzzle::new(2021, 2)
     }
 
-    fn parse(line: &str) -> Self::Item {
-        let mut iter = line.split_whitespace();
-        let dir: &str = iter.next().unwrap();
-        let qnt: usize = iter.next().unwrap().parse().unwrap();
-        match dir {
-            "forward" => Step::Fwd(qnt),
-            "up" => Step::Up(qnt),
-            "down" => Step::Down(qnt),
-            _ => panic!("Bah!"),
-        }
-    }
-
-    fn solve_one(inputs: &[Step]) -> String {
+    fn solve_one(inputs: &[Self::Item]) -> String {
         let mut pos = Pos(0, 0, 0);
 
         for step in inputs {
@@ -91,5 +79,21 @@ impl Solver for Aoc {
         }
 
         pos.value().to_string()
+    }
+}
+
+impl FromStr for Step {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let mut iter = s.split_whitespace();
+        let dir: &str = iter.next().unwrap();
+        let qnt: usize = iter.next().unwrap().parse().unwrap();
+        match dir {
+            "forward" => Ok(Step::Fwd(qnt)),
+            "up" => Ok(Step::Up(qnt)),
+            "down" => Ok(Step::Down(qnt)),
+            _ => Err(format!("Invalid direction: {}", dir)),
+        }
     }
 }
